@@ -1,0 +1,196 @@
+/* src/assets/main.css */
+
+/* Basic reset/box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  color: #333;
+  background-color: #f4f4f4;
+  line-height: 1.6;
+}
+
+#app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem; /* Use variables if defined, e.g., var(--pa-4) */
+}
+
+/* Flex utilities (d-flex, justify-space-between, align-center) */
+.d-flex { display: flex; }
+.justify-space-between { justify-content: space-between; }
+.align-center { align-items: center; }
+
+/* Spacing (mb-6, mb-4, ml-2, pa-4, pa-md-8) - these assume some utility classes */
+/* Example: */
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.ml-2 { margin-left: 0.5rem; }
+.pa-4 { padding: 1rem; }
+@media (min-width: 768px) {
+  .pa-md-8 { padding: 2rem; }
+}
+
+/* Typography (text-h5, text-md-h4, font-weight-bold, text-uppercase, text-grey-darken-1) */
+/* Example: */
+.text-h5 { font-size: 1.5rem; }
+@media (min-width: 768px) {
+  .text-md-h4 { font-size: 2rem; }
+}
+.font-weight-bold { font-weight: 700; }
+.text-uppercase { text-transform: uppercase; }
+.text-grey-darken-1 { color: #666; } /* Adjust color to match your design */
+
+
+/* Add Button Styles */
+.add-button {
+  background-color: #4CAF50; /* A clear, visible color */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex; /* To align icon and text */
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #45a049;
+}
+
+.add-button svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+  stroke: white;
+}
+
+/* Delete Button Styles */
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dc3545; /* Red for delete */
+  transition: color 0.3s ease;
+}
+
+.delete-button:hover {
+  color: #c82333;
+}
+
+.delete-button svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor; /* Inherit color from parent */
+  fill: none;
+}
+
+
+/* Account Item Card and Grid */
+.account-item-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.account-item-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Default for small screens */
+  gap: 1rem;
+}
+
+@media (min-width: 768px) { /* Adjust breakpoint as needed */
+  .account-item-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)); /* 5 columns for desktop */
+    align-items: center;
+    gap: 1rem;
+  }
+  .grid-header {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr)); /* Same as above */
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  .d-md-none { display: none !important; } /* Hide labels on desktop */
+  .d-none.d-md-grid { display: grid !important; } /* Show header grid on desktop */
+}
+
+.grid-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.cell-label {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 0.25rem;
+}
+
+.form-input, .form-select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-input:focus, .form-select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+}
+
+.invalid-field {
+  border-color: #dc3545; /* Red border for invalid fields */
+}
+
+.invalid-field:focus {
+  box-shadow: 0 0 0 0.1rem rgba(220, 53, 69, 0.25);
+}
+
+.password-placeholder {
+  padding: 0.5rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.text-grey { color: #888; } /* Example */
+
+.action-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-accounts-message {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px dashed #e0e0e0;
+}
+
+/* Add styles for info-tooltip-wrapper if needed */
+.info-tooltip-wrapper {
+  background-color: #e6f7ff;
+  border: 1px solid #91d5ff;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  color: #333;
+  font-size: 0.9rem;
+}
